@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap");
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -25,7 +27,8 @@ body {
   flex-direction: column;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Schibsted Grotesk", sans-serif;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import PageContent from "@/components/PageContent/MainPageContent";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Book Nook",
@@ -10,7 +13,18 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <PageHeader />
+        <PageContent>{children}</PageContent>
+        <footer>
+          <span>
+            Credits:{" "}
+            <Link href="https://streamlinehq.com/">
+              Free icons and illustrations from Streamline
+            </Link>
+          </span>
+        </footer>
+      </body>
     </html>
   );
 }

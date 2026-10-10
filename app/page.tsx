@@ -1,12 +1,12 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import "./page.css";
+import BookCard from "@/components/BookCard/BookCard";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1>Home</h1>
-      </main>
-    </div>
+    <main className="page--home">
+      <h1>Welcome to Book Nook</h1>
+      <BookCard />
+    </main>
   );
 }
