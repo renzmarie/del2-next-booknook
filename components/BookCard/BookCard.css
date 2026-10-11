@@ -1,0 +1,22 @@
+.card--book {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 0.5rem;
+
+  background-color: var(--surface);
+  color: white;
+  border: solid 1px var(--border);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  a {
+    display: block;
+    margin-inline: 0 auto;
+  }
+}

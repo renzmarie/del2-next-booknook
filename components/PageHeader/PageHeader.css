@@ -1,7 +1,11 @@
 .page-header {
   display: flex;
   justify-content: space-between;
-  img {
+
+  inline-size: min(960px, 96%);
+  margin: 1rem auto;
+
+  .header-logo {
     max-width: 12rem;
   }
 }

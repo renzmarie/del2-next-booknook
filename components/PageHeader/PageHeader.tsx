@@ -7,10 +7,15 @@ export default function PageHeader() {
       <img
         src="/logo_dark.svg"
         alt="The Book Nook logo. Three books stacked on top of each other and the page name Book Nook in small letters."
+        className="header-logo"
       />
-      <nav>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
+      <nav className="nav--header">
+        <Link className="link-pressable" href="/">
+          Home
+        </Link>
+        <Link className="link-pressable" href="/about">
+          About
+        </Link>
       </nav>
     </header>
   );
