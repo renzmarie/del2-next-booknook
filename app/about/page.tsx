@@ -2,8 +2,8 @@ import "./about.css";
 
 export default function AboutPage() {
   return (
-    <main>
-      <h1> About Book Nook</h1>
-    </main>
+    <>
+      <h1 className="accent-text"> About Book Nook</h1>
+    </>
   );
 }
