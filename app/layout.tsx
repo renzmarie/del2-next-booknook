@@ -3,7 +3,7 @@ import "./globals.css";
 
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Link from "next/link";
-import PageContainer from "@/components/PageContent/PageContainer";
+import PageContainer from "@/components/PageContainer/PageContainer";
 
 export const metadata: Metadata = {
   title: "Book Nook",

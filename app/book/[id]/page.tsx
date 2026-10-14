@@ -1,35 +1,47 @@
 import Link from "next/link";
 import "./book.css";
+import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
+import { Book } from "@/types/Book.type";
+import { NoneResponse } from "@/types/Response.type";
+import BookNotFound from "@/components/BookNotFound/BookNotFound";
 
-export default function Book() {
-  const sampleLink1 =
-    "https://www.gutenberg.org/cache/epub/1342/pg1342-images.html";
+export type BookPageProps = {
+  params: Promise<{ id: string }>;
+};
+export default async function BookPage({ params }: BookPageProps) {
+  const paramsId = await params;
 
-  const sampleLink2 = "https://www.gutenberg.org/ebooks/1342.epub3.images";
+  const bookId = paramsId.id;
+
+  const response = await fetch(`${BOOKS_API_ENDPOINT}/${bookId}`);
+
+  if (!response.ok) {
+    console.log(`Something went wrong. Error Code: ${response.status}`);
+  }
+
+  const book: Book = await response.json();
+
+  if (!book.id) {
+    return <BookNotFound />;
+  }
 
   return (
     <div className="container--book">
-      <h1 className="accent-text">Book title</h1>
+      <h1 className="accent-text">{book.title}</h1>
 
       <section className="flex-row">
-        <img src="/placeholder-book-cover.svg" alt="" width={82} />
+        <img src={book.formats["image/jpeg"]} alt="" width={128} height={200} />
         <div>
           <p>
             <span className="bold-text">Author(s):</span>{" "}
-            <span>Author Authorson</span>
+            {book.authors.map((author) => author.name).join(", ")}
           </p>
           <p>
-            <span className="bold-text">Summary:</span>{" "}
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </span>
+            <span className="bold-text">Summary:</span> {book.summaries}
           </p>
           <p>
             <span className="bold-text">Subject(s):</span>{" "}
-            <span>Sample subject</span>, <span>Sample subject</span>
+            {book.subjects.map((subject) => subject).join(", ")}
           </p>
         </div>
       </section>
@@ -37,12 +49,19 @@ export default function Book() {
         <h2>Want to read the book?</h2>
         <ul>
           <li>
-            <Link href={sampleLink1} target="_blank" className="link-pressable">
+            <Link
+              href={book.formats["text/html"]}
+              target="_blank"
+              className="link-pressable"
+            >
               Open book in new tab
             </Link>
           </li>
           <li>
-            <Link href={sampleLink2} className="link-pressable">
+            <Link
+              href={book.formats["application/epub+zip"]}
+              className="link-pressable"
+            >
               Download e-pub (zip folder)
             </Link>
           </li>
