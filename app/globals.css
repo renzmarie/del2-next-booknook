@@ -49,10 +49,9 @@ main {
 }
 
 footer {
+  margin-block-start: 1rem;
   inline-size: min(960px, 96%);
   margin-inline: auto;
-  position: fixed;
-  bottom: 0;
 }
 
 * {

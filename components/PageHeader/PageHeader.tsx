@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./PageHeader.css";
+import { IoSearch } from "react-icons/io5";
 
 export default function PageHeader() {
   return (
@@ -15,6 +16,10 @@ export default function PageHeader() {
         </Link>
         <Link className="link-pressable" href="/about">
           About
+        </Link>
+        <Link className="link-pressable" href="/">
+          Find Book
+          <IoSearch />
         </Link>
       </nav>
     </header>

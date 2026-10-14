@@ -1,15 +1,14 @@
 import "./SearchForm.css";
+import Form from "next/form";
 
 export default function SearchForm() {
   return (
-    <form className="form--search">
-      <label>
-        Find books by title or author
-        <input type="text" required></input>
-      </label>
+    <Form action="/search" formMethod="GET" className="form--search">
+      <label htmlFor="search-text">Search book by title or author</label>
+      <input name="q" id="search-text" type="text" required></input>
       <button type="submit" className="button-primary">
         Find
       </button>
-    </form>
+    </Form>
   );
 }
