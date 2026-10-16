@@ -4,26 +4,27 @@ import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
 import { Book } from "@/types/Book.type";
 import { NoneResponse } from "@/types/Response.type";
 import BookNotFound from "@/components/BookNotFound/BookNotFound";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 
 export type BookPageProps = {
   params: Promise<{ id: string }>;
 };
+
 export default async function BookPage({ params }: BookPageProps) {
   const paramsId = await params;
-
   const bookId = paramsId.id;
-
   const response = await fetch(`${BOOKS_API_ENDPOINT}/${bookId}`);
 
+  if (response.status === 404) {
+    return <BookNotFound searchId={bookId} />;
+  }
+
   if (!response.ok) {
-    console.log(`Something went wrong. Error Code: ${response.status}`);
+    console.log(response.status);
+    return <ErrorMessage status={response.status} />;
   }
 
   const book: Book = await response.json();
-
-  if (!book.id) {
-    return <BookNotFound searchId={bookId} />;
-  }
 
   return (
     <div className="container--book">

@@ -5,12 +5,13 @@ import SearchForm from "@/components/SearchForm/SearchForm";
 import Link from "next/link";
 import BooksGrid from "@/components/BooksGrid/BooksGrid";
 import { Book } from "@/types/Book.type";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 
 export default async function Home() {
   const response = await fetch(`${BOOKS_API_ENDPOINT}?sort=popular`);
 
   if (!response.ok) {
-    console.log(`Something went wrong. Error Code: ${response.status}`);
+    return <ErrorMessage status={response.status} />;
   }
 
   const books: ApiResponse = await response.json();
