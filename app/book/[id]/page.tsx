@@ -22,7 +22,7 @@ export default async function BookPage({ params }: BookPageProps) {
   const book: Book = await response.json();
 
   if (!book.id) {
-    return <BookNotFound />;
+    return <BookNotFound searchId={bookId} />;
   }
 
   return (
@@ -46,7 +46,7 @@ export default async function BookPage({ params }: BookPageProps) {
         </div>
       </section>
       <section>
-        <h2>Want to read the book?</h2>
+        <h2>Want to read {book.title}?</h2>
         <ul>
           <li>
             <Link
@@ -62,7 +62,7 @@ export default async function BookPage({ params }: BookPageProps) {
               href={book.formats["application/epub+zip"]}
               className="link-pressable"
             >
-              Download e-pub (zip folder)
+              Download e-pub file (zip folder)
             </Link>
           </li>
         </ul>

@@ -1,0 +1,19 @@
+.not-found-container {
+  inline-size: min(450px, 96%);
+  margin-inline: auto;
+  text-align: center;
+
+  .big-icon {
+    font-size: 4.5rem;
+  }
+
+  .big-text {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-block-end: 1rem;
+  }
+
+  .italicized {
+    font-style: italic;
+  }
+}

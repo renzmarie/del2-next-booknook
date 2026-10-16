@@ -1,3 +1,10 @@
+import Spinner from "@/components/Spinner/Spinner";
+
 export default function SearchLoadingPage() {
-  return <span>PAGE IS LOADING</span>;
+  return (
+    <>
+      <h1 className="accent-text">Searching our collection</h1>
+      <Spinner />
+    </>
+  );
 }

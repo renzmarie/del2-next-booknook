@@ -1,6 +1,5 @@
 import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
 import "./page.css";
-import BookCard from "@/components/BookCard/BookCard";
 import { ApiResponse } from "@/types/Response.type";
 import SearchForm from "@/components/SearchForm/SearchForm";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import BooksGrid from "@/components/BooksGrid/BooksGrid";
 import { Book } from "@/types/Book.type";
 
 export default async function Home() {
-  const response = await fetch(`${BOOKS_API_ENDPOINT}/?page=1`);
+  const response = await fetch(`${BOOKS_API_ENDPOINT}?sort=popular`);
 
   if (!response.ok) {
     console.log(`Something went wrong. Error Code: ${response.status}`);
@@ -16,7 +15,7 @@ export default async function Home() {
 
   const books: ApiResponse = await response.json();
 
-  const popularBooks: Book[] = books.results.splice(5, 10);
+  const popularBooks: Book[] = books.results.splice(0, 12);
 
   return (
     <div className="container--home">

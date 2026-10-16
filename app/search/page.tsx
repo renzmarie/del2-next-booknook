@@ -2,6 +2,7 @@ import BooksGrid from "@/components/BooksGrid/BooksGrid";
 import "./SearchPage.css";
 import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
 import { ApiResponse } from "@/types/Response.type";
+import BookNotFound from "@/components/BookNotFound/BookNotFound";
 
 export type SearchPageProps = {
   searchParams: Promise<{
@@ -20,17 +21,16 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   const data: ApiResponse = await response.json();
 
+  if (data.count === 0) {
+    return <BookNotFound searchParams={q} />;
+  }
+
   const booksArray = data.results;
 
   return (
     <>
       <h1>Search results for "{q}"</h1>
       <section>
-        {data.count === 0 ? (
-          <span>No books found for {q}</span>
-        ) : (
-          <BooksGrid booksArray={booksArray} />
-        )}
         <BooksGrid booksArray={booksArray} />
       </section>
     </>
