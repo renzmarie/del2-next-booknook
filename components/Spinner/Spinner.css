@@ -1,0 +1,49 @@
+.spinner {
+  text-align: center;
+  margin: auto;
+
+  span {
+    display: block;
+    margin-block: 1rem;
+  }
+}
+
+.spinner-background {
+  background-image: url("/bookshelf2.svg");
+  border: solid 2px var(--secondary-accent);
+  border-radius: 1rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  margin-inline: auto;
+}
+
+.moving-element {
+  display: inline-block;
+  position: absolute;
+  font-size: 1.5rem;
+  animation: z-movement 6s linear infinite;
+  margin: 0.5rem;
+}
+
+@keyframes z-movement {
+  0% {
+    top: 40px;
+    left: 0;
+  }
+  33% {
+    top: 40px;
+    left: 120px;
+  }
+  66% {
+    top: 110px;
+    left: 0;
+  }
+  100% {
+    top: 110px;
+    left: 120px;
+  }
+}
