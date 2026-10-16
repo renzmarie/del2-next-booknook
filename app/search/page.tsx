@@ -3,6 +3,7 @@ import "./SearchPage.css";
 import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
 import { ApiResponse } from "@/types/Response.type";
 import BookNotFound from "@/components/BookNotFound/BookNotFound";
+import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 
 export type SearchPageProps = {
   searchParams: Promise<{
@@ -16,7 +17,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const response = await fetch(`${BOOKS_API_ENDPOINT}?search=${encodeURI(q)}`);
 
   if (!response.ok) {
-    console.log(`Something went wrong. Error Code: ${response.status}`);
+    return <ErrorMessage status={response.status} />;
   }
 
   const data: ApiResponse = await response.json();

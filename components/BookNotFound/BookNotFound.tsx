@@ -17,8 +17,7 @@ export default function BookNotFound({
       {searchId !== undefined ? (
         <p className="book">
           <span className="big-text">
-            No book found with ID number{" "}
-            <span className="italicized">{searchId}</span>
+            No book found with ID <span className="italicized">{searchId}</span>
           </span>
           <br />
           <RiLightbulbAiLine /> Tip! Search for books via title or author name

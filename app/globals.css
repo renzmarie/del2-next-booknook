@@ -92,6 +92,8 @@ button {
 }
 
 .link-pressable {
+  display: block;
+  margin-inline: auto;
   padding: 0.5rem 1rem;
 }
 
@@ -101,6 +103,7 @@ button {
 }
 
 .button-primary {
+  display: block;
   background-color: var(--primary-accent);
   border: none;
   color: #000000;
@@ -115,6 +118,7 @@ button {
 }
 
 .button-secondary {
+  display: block;
   background-color: transparent;
   border: solid 2px var(--primary-accent);
   border-radius: 100vh;
@@ -129,6 +133,12 @@ button {
 
 .flex-row {
   display: flex;
+  gap: 1rem;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
