@@ -1,3 +1,7 @@
+// Created a variable (errorList) containing error codes that could possibly be handled
+// by user or would be useful for the user to know.
+// There is logic in the function to handle if the error does not exist in this hardcoded list.
+
 "use client";
 
 import Link from "next/link";
@@ -10,8 +14,13 @@ type ErrorMessageProps = {
   status: number;
 };
 
+type errorItem = {
+  statusNumber: number;
+  description: string;
+};
+
 export default function ErrorMessage({ status }: ErrorMessageProps) {
-  const errorList = [
+  const errorList: errorItem[] = [
     { statusNumber: 400, description: "Bad Request" },
     { statusNumber: 404, description: "Not Found" },
     { statusNumber: 408, description: "Request Timeout" },
@@ -21,7 +30,7 @@ export default function ErrorMessage({ status }: ErrorMessageProps) {
     { statusNumber: 504, description: "Gateway Timeout" },
   ];
 
-  const errorType = errorList.find((item) => item.statusNumber === status)!;
+  const errorType = errorList.find((item) => item.statusNumber === status);
 
   const pathname = usePathname();
 
@@ -35,14 +44,14 @@ export default function ErrorMessage({ status }: ErrorMessageProps) {
     <div className="error-message-component flex-column">
       <MdError className="big-icon" />
       <span className="big-text">
-        Error {status} <br /> {errorType.description}
+        Error {status} <br /> {errorType !== undefined && errorType.description}
       </span>
 
       {/* Keeping {status} here instead of errorType.status in case the error is not one of the errors I am willing to handle */}
 
       {pathname === "/" ? (
         <span className="important-text">
-          Cannot access our digital library at the moment.
+          Unable to access our digital library at the moment.
         </span>
       ) : (
         ""
