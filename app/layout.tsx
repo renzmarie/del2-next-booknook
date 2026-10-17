@@ -22,12 +22,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
 
         <footer>
-          <span>
+          <p>
             Credits:{" "}
             <Link href="https://streamlinehq.com/">
               Free icons and illustrations from Streamlines
             </Link>
-          </span>
+            Powered by{" "}
+            <Link href="https://www.gutenberg.org/">Project Gutenberg</Link>.
+          </p>
         </footer>
       </body>
     </html>

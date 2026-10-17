@@ -1,5 +1,17 @@
 .container--home {
-  text-align: center;
+  .hero-section {
+    text-align: center;
+    background-color: var(--secondary-accent);
+    border-radius: 2rem;
+    padding-block: 2rem 1rem;
+    margin-block: 1rem 3rem;
+    inline-size: min(650px, 96%);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-block-end: 1rem;
+  }
 }
 
 .hero-text {

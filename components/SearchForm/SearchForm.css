@@ -1,3 +1,17 @@
 .form--search {
   margin-block: 2rem;
 }
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+  inline-size: max(80%, 200px);
+  margin-inline: auto;
+
+  input {
+    border: solid 1px var(--primary-accent);
+    border-radius: 100vh;
+    padding: 0.5rem 1rem;
+    width: 70%;
+  }
+}
