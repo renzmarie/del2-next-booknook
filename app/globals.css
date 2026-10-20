@@ -58,9 +58,26 @@ main {
 }
 
 footer {
+  display: flex;
+  justify-content: space-between;
   margin-block-start: 1rem;
   inline-size: min(1920px, 96%);
   margin-inline: auto;
+  border-block-start: 1px solid var(--secondary-accent);
+  padding-block: 1rem;
+  line-height: 1.5rem;
+
+  ul {
+    margin-inline-start: 1rem;
+  }
+
+  a {
+    text-decoration: underline var(--secondary-accent);
+  }
+  a:hover,
+  a:focus {
+    text-decoration-thickness: 3px;
+  }
 }
 
 a {
@@ -175,7 +192,7 @@ h2 {
 .container--loading {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
 
   h1 {

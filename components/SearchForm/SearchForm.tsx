@@ -4,18 +4,14 @@ import { IoIosSearch } from "react-icons/io";
 
 export default function SearchForm() {
   return (
-    <Form
-      action="/search"
-      formMethod="GET"
-      className="form--search flex-column"
-    >
-      <label htmlFor="search-text">Search by title or author</label>
-      <div className="input-container center">
+    <Form action="/search" formMethod="GET" className="form--search">
+      <div className="label-input-container">
+        <label htmlFor="search-text">Search by title or author</label>
         <input name="q" id="search-text" type="text" required></input>
-        <button type="submit" className="button-primary">
-          Find <IoIosSearch />
-        </button>
       </div>
+      <button type="submit" className="button-primary">
+        Find <IoIosSearch />
+      </button>
     </Form>
   );
 }
