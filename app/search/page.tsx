@@ -30,7 +30,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <>
-      <h1>Search results for "{q}"</h1>
+      <h1 className="underlined-text">Search results for "{q}"</h1>
       <section>
         <BooksGrid booksArray={booksArray} />
       </section>

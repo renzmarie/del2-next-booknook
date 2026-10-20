@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { IoMdOpen } from "react-icons/io";
 
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Link from "next/link";
@@ -22,12 +23,36 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
 
         <footer>
-          <span>
-            Credits:{" "}
-            <Link href="https://streamlinehq.com/">
-              Free icons and illustrations from Streamlines
+          <div>
+            <span>Resources from</span>{" "}
+            <Link href="https://www.gutenberg.org/" target="_blank">
+              Project Gutenberg <IoMdOpen />
             </Link>
-          </span>
+            .
+          </div>
+          <div>
+            <span>Credits:</span>{" "}
+            <Link href="https://streamlinehq.com/" target="_blank">
+              Free icons and illustrations from Streamlines <IoMdOpen />
+            </Link>
+          </div>
+          <div>
+            <span>Created by Renz Marie Nollase</span>{" "}
+            <ul>
+              <li>
+                GitHub:{" "}
+                <Link href="https://github.com/renzmarie" target="_blank">
+                  @renzmarie <IoMdOpen />
+                </Link>
+              </li>
+              <li>
+                Email:{" "}
+                <Link href="mailto:renzmarienollase@gmail.com">
+                  renzmarienollase@gmail.com
+                </Link>
+              </li>
+            </ul>
+          </div>
         </footer>
       </body>
     </html>

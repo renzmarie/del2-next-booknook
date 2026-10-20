@@ -2,7 +2,8 @@ import Link from "next/link";
 import "./book.css";
 import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
 import { Book } from "@/types/Book.type";
-import { NoneResponse } from "@/types/Response.type";
+import { IoMdOpen } from "react-icons/io";
+import { TbDownloadFilled } from "react-icons/tb";
 import BookNotFound from "@/components/BookNotFound/BookNotFound";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
 
@@ -27,18 +28,27 @@ export default async function BookPage({ params }: BookPageProps) {
   const book: Book = await response.json();
 
   return (
-    <div className="container--book">
-      <h1 className="accent-text">{book.title}</h1>
+    <>
+      <h1 className="accent-text underlined-text">{book.title}</h1>
 
-      <section className="flex-row">
-        <img src={book.formats["image/jpeg"]} alt="" width={128} height={200} />
+      <section className="flex-row bottom-border">
         <div>
+          <img
+            src={book.formats["image/jpeg"]}
+            alt=""
+            width={128}
+            height={200}
+          />
+        </div>
+
+        <div className="book-details">
           <p>
             <span className="bold-text">Author(s):</span>{" "}
             {book.authors.map((author) => author.name).join(", ")}
           </p>
           <p>
-            <span className="bold-text">Summary:</span> {book.summaries}
+            <span className="bold-text bottom-margin">Summary:</span> <br />{" "}
+            {book.summaries}
           </p>
           <p>
             <span className="bold-text">Subject(s):</span>{" "}
@@ -46,28 +56,29 @@ export default async function BookPage({ params }: BookPageProps) {
           </p>
         </div>
       </section>
-      <section>
+
+      <section className="book-access">
         <h2>Want to read {book.title}?</h2>
-        <ul>
-          <li>
+        <ul className="flex-row">
+          <li className="center">
             <Link
               href={book.formats["text/html"]}
               target="_blank"
-              className="link-pressable"
+              className="card--link"
             >
-              Open book in new tab
+              Open book in new tab <IoMdOpen />
             </Link>
           </li>
-          <li>
+          <li className="center">
             <Link
               href={book.formats["application/epub+zip"]}
-              className="link-pressable"
+              className="card--link"
             >
-              Download e-pub file (zip folder)
+              <TbDownloadFilled /> Download e-pub file (zip folder)
             </Link>
           </li>
         </ul>
       </section>
-    </div>
+    </>
   );
 }

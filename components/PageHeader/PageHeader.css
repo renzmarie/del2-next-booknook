@@ -1,11 +1,28 @@
 .page-header {
-  display: flex;
   justify-content: space-between;
+  inline-size: min(1920px, 96%);
+  margin-block: 0.5rem;
+}
 
-  inline-size: min(960px, 96%);
-  margin: 1rem auto;
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: min(3rem, 100%);
 
-  .header-logo {
-    max-width: 12rem;
+  img {
+    height: 2rem;
   }
+
+  .logo-text {
+    font-family: var(--font-accent);
+    font-size: 2rem;
+    margin-block: auto;
+  }
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }

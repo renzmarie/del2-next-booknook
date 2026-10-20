@@ -20,14 +20,12 @@ export default async function Home() {
 
   return (
     <div className="container--home">
-      <h1 className="hero-text accent-text">79,000+ Free E-books</h1>
-      <p>
-        Find your next favorite read. Powered by{" "}
-        <Link href="https://www.gutenberg.org/">Project Gutenberg</Link>.
-      </p>
-      <SearchForm />
+      <section className="hero-section center">
+        <h1 className="hero-text accent-text">79,000+ Free e-books</h1>
+        <SearchForm />
+      </section>
       <section>
-        <h2 className="accent-text">Most Popular</h2>
+        <h2 className="accent-text underlined-text">Most Popular</h2>
         <BooksGrid booksArray={popularBooks} />
       </section>
     </div>
