@@ -15,16 +15,15 @@ export default function BookNotFound({
     <div className="not-found-container">
       <LuSearchX className="big-icon" />
       {searchId !== undefined ? (
-        <p className="book">
+        <p>
           <span className="big-text">
             No book found with ID <span className="italicized">{searchId}</span>
           </span>
           <br />
-          <RiLightbulbAiLine /> Tip! Search for books via title or author name
-          in the search bar on top of the page.
+          <RiLightbulbAiLine /> Tip! Search for books via title or author name.
         </p>
       ) : (
-        <p className="search">
+        <p>
           <span className="big-text">Search results for "{searchParams}"</span>
           <br />
           No books found in our collection related to your search.
