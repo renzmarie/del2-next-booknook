@@ -10,8 +10,6 @@
 
 .spinner-background {
   background-image: url("/bookshelf2.svg");
-  border: solid 2px var(--secondary-accent);
-  border-radius: 1rem;
   background-repeat: no-repeat;
   background-size: contain;
   width: 150px;
