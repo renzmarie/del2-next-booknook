@@ -20,8 +20,6 @@ export default async function PaginatedSearch({
   const { pageNumber } = await params;
   const { q } = await searchParams;
 
-  console.log(pageNumber, q);
-
   if (!q) {
     return (
       <div className="not-found-container">
@@ -61,6 +59,7 @@ export default async function PaginatedSearch({
           <Pagination
             pageNumber={parseInt(pageNumber)}
             totalPageCount={totalPageCount}
+            q={q}
           />
         )}
       </section>

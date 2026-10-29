@@ -18,7 +18,10 @@ export default function Pagination({
     <div className="container--pagination">
       <span>
         {pageNumber > 1 && (
-          <Link href={`/search/${pageNumber - 1}`} className="button-secondary">
+          <Link
+            href={`/search/${pageNumber - 1}?q=${q}`}
+            className="button-secondary"
+          >
             Previous
           </Link>
         )}
