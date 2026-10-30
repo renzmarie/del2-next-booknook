@@ -1,15 +1,12 @@
 import BooksGrid from "@/components/BooksGrid/BooksGrid";
-import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
-import { ApiResponse } from "@/types/Response.type";
-import BookNotFound from "@/components/BookNotFound/BookNotFound";
-import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
-import Pagination from "@/components/Pagination/Pagination";
+import Skeleton from "@/components/Skeleton/Skeleton";
+import { Suspense } from "react";
 import { RiLightbulbAiLine } from "react-icons/ri";
 
 export type SearchPageProps = {
   params: Promise<{ pageNumber: string }>;
   searchParams: Promise<{
-    q: string;
+    query: string;
   }>;
 };
 
@@ -18,9 +15,11 @@ export default async function PaginatedSearch({
   searchParams,
 }: SearchPageProps) {
   const { pageNumber } = await params;
-  const { q } = await searchParams;
+  const { query } = await searchParams;
 
-  if (!q) {
+  console.log("pageNumber:", pageNumber);
+
+  if (query.trim().length === 0) {
     return (
       <div className="not-found-container">
         <p>
@@ -32,36 +31,16 @@ export default async function PaginatedSearch({
     );
   }
 
-  const response = await fetch(
-    `${BOOKS_API_ENDPOINT}?page=${parseInt(pageNumber)}&search=${encodeURI(q)}`,
-  );
-
-  if (!response.ok) {
-    return <ErrorMessage status={response.status} />;
-  }
-
-  const data: ApiResponse = await response.json();
-
-  if (data.count === 0) {
-    return <BookNotFound searchParams={q} />;
-  }
-
-  const booksArray = data.results;
-
-  const totalPageCount = Math.ceil(data.count / 32);
-
   return (
     <>
-      <h1 className="underlined-text">Search results for "{q}"</h1>
+      <h1>Search results for "{query}"</h1>
       <section>
-        <BooksGrid booksArray={booksArray} />
-        {(data.next || data.previous !== null) && (
-          <Pagination
-            pageNumber={parseInt(pageNumber)}
-            totalPageCount={totalPageCount}
-            q={q}
+        <Suspense fallback={<Skeleton />}>
+          <BooksGrid
+            pageNumberParams={pageNumber === undefined ? "1" : pageNumber}
+            searchParams={query}
           />
-        )}
+        </Suspense>
       </section>
     </>
   );

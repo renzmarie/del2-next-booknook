@@ -1,10 +1,18 @@
 .spinner {
   text-align: center;
-  margin: auto;
+  margin-block-start: 2rem;
+  margin-inline: auto;
+  inline-size: min(580px, 80%);
+  height: 100vh;
 
   span {
     display: block;
     margin-block: 1rem;
+  }
+
+  .big-text {
+    font-family: var(--font-accent);
+    font-size: 1.75rem;
   }
 }
 

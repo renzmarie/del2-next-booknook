@@ -2,10 +2,11 @@ import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
 import "./page.css";
 import { ApiResponse } from "@/types/Response.type";
 import SearchForm from "@/components/SearchForm/SearchForm";
-import Link from "next/link";
-import BooksGrid from "@/components/BooksGrid/BooksGrid";
 import { Book } from "@/types/Book.type";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
+import { Suspense } from "react";
+import Skeleton from "@/components/Skeleton/Skeleton";
+import BookCard from "@/components/BookCard/BookCard";
 
 export default async function Home() {
   const response = await fetch(`${BOOKS_API_ENDPOINT}?sort=popular`);
@@ -26,7 +27,13 @@ export default async function Home() {
       </section>
       <section>
         <h2 className="accent-text underlined-text">Most Popular</h2>
-        <BooksGrid booksArray={popularBooks} />
+        <Suspense fallback={<Skeleton />}>
+          <div className="grid-cards">
+            {popularBooks.map((book) => (
+              <BookCard key={book.id} book={book} />
+            ))}
+          </div>
+        </Suspense>
       </section>
     </div>
   );

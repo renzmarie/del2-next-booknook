@@ -1,0 +1,62 @@
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+
+  margin-block-start: 2rem;
+}
+
+.book-skeleton {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 0.5rem;
+  background-color: var(--surface);
+  border: solid 1px var(--border);
+  border-radius: 1rem;
+  padding: 1rem 1rem;
+}
+
+.skeleton-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.skeleton-cover {
+  background-color: var(--border);
+  margin-inline: auto;
+  width: 30%;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+}
+
+.skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.skeleton-title {
+  background-color: var(--border);
+  width: 80%;
+  height: 1.5rem;
+  border-radius: 4px;
+}
+
+.skeleton-author {
+  background-color: var(--border);
+  width: 55%;
+  height: 1rem;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
