@@ -19,6 +19,9 @@ export default function PageHeader() {
         <Link className="link-pressable" href="/about">
           About
         </Link>
+        <Link className="link-pressable" href="/test">
+          Test
+        </Link>
       </nav>
     </header>
   );

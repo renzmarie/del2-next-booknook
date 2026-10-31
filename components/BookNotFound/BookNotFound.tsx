@@ -26,7 +26,8 @@ export default function BookNotFound({
         <p>
           <span className="big-text">Search results for "{searchParams}"</span>
           <br />
-          No books found in our collection related to your search.
+          No books found in our collection related to your search. <br />
+          <RiLightbulbAiLine /> Tip! Search for books via title or author name.
         </p>
       )}
     </div>
