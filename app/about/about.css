@@ -1,0 +1,4 @@
+.container--about-page {
+  inline-size: min(55rem, 96%);
+  margin-inline: auto;
+}
