@@ -7,7 +7,7 @@ export default function SearchForm() {
     <Form action="/search" formMethod="GET" className="form--search">
       <div className="label-input-container">
         <label htmlFor="search-text">Search by title or author</label>
-        <input name="q" id="search-text" type="text" required></input>
+        <input name="query" id="search-text" type="text" required></input>
       </div>
       <button type="submit" className="button-primary">
         Find <IoIosSearch />

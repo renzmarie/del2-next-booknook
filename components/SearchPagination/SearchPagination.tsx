@@ -1,35 +1,40 @@
 import Link from "next/link";
-import "./Pagination.css";
+import "./SearchPagination.css";
 
-type PaginationProps = {
+type SearchPaginationProps = {
   totalPageCount: number;
   pageNumber: number;
-  q?: string;
+  query?: string;
 };
 
 // Determine page number based on count divided by 32
 
-export default function Pagination({
+export default function SearchPagination({
   totalPageCount,
   pageNumber,
-  q,
-}: PaginationProps) {
+  query,
+}: SearchPaginationProps) {
   return (
     <div className="container--pagination">
       <span>
         {pageNumber > 1 && (
           <Link
-            href={`/search/${pageNumber - 1}?q=${q}`}
+            href={`/search/${pageNumber - 1}?query=${query}`}
             className="button-secondary"
           >
             Previous
           </Link>
         )}
       </span>
+
+      <span className="italicized">
+        Page {pageNumber} of {totalPageCount}
+      </span>
+
       <span>
         {pageNumber < totalPageCount && (
           <Link
-            href={`/search/${pageNumber + 1}?q=${q}`}
+            href={`/search/${pageNumber + 1}?query=${query}`}
             className="button-secondary"
           >
             Next
