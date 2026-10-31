@@ -50,9 +50,7 @@ export default function ErrorMessage({ status }: ErrorMessageProps) {
       {/* Keeping {status} here instead of errorType.status in case the error is not one of the errors I am willing to handle */}
 
       {pathname === "/" ? (
-        <span className="important-text">
-          Unable to access our digital library at the moment.
-        </span>
+        <span>Unable to access our digital library at the moment.</span>
       ) : (
         ""
       )}
@@ -60,9 +58,7 @@ export default function ErrorMessage({ status }: ErrorMessageProps) {
       {(status === 429 ||
         status === 500 ||
         status === 503 ||
-        status === 504) && (
-        <span className="important-text">Try again later.</span>
-      )}
+        status === 504) && <span>Try again later.</span>}
 
       {(status === 400 || status === 408) && (
         <button

@@ -5,23 +5,29 @@ import { ApiResponse } from "@/types/Response.type";
 import BookNotFound from "../BookNotFound/BookNotFound";
 import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
 import SearchPagination from "../SearchPagination/SearchPagination";
+import { getParams } from "@/utils/getParams";
 
 type BooksGridProps = {
+  searchParams?: string;
+  sortParams?: string;
+  topicParams?: string;
   pageNumberParams?: string;
-  searchParams: string;
 };
 
 export default async function BooksGrid({
-  pageNumberParams,
   searchParams,
+  sortParams,
+  topicParams,
+  pageNumberParams,
 }: BooksGridProps) {
-  const response = await fetch(
-    `${BOOKS_API_ENDPOINT}?page=${pageNumberParams === undefined ? 1 : parseInt(pageNumberParams)}&search=${searchParams}`,
-  );
+  const fetchParams = getParams({
+    searchParams,
+    sortParams,
+    topicParams,
+    pageNumberParams,
+  });
 
-  console.log(
-    `${BOOKS_API_ENDPOINT}?page=${pageNumberParams === undefined ? 1 : parseInt(pageNumberParams)}&search=${searchParams}`,
-  );
+  const response = await fetch(`${BOOKS_API_ENDPOINT}${fetchParams}`);
 
   if (!response.ok) {
     return <ErrorMessage status={response.status} />;
