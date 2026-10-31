@@ -58,9 +58,9 @@ main {
 }
 
 footer {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
   margin-block-start: 1rem;
   inline-size: min(1920px, 96%);
   margin-inline: auto;

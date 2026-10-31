@@ -24,34 +24,39 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <footer>
           <div>
-            <span>Resources from</span>{" "}
-            <Link href="https://www.gutenberg.org/" target="_blank">
-              Project Gutenberg <IoMdOpen />
-            </Link>
-            .
-          </div>
-          <div>
-            <span>Credits:</span>{" "}
-            <Link href="https://streamlinehq.com/" target="_blank">
-              Free icons and illustrations from Streamlines <IoMdOpen />
-            </Link>
-          </div>
-          <div>
             <span>Created by Renz Marie Nollase</span>{" "}
             <ul>
               <li>
                 GitHub:{" "}
-                <Link href="https://github.com/renzmarie" target="_blank">
+                <a href="https://github.com/renzmarie" target="_blank">
                   @renzmarie <IoMdOpen />
-                </Link>
+                </a>
               </li>
               <li>
                 Email:{" "}
-                <Link href="mailto:renzmarienollase@gmail.com">
+                <a href="mailto:renzmarienollase@gmail.com">
                   renzmarienollase@gmail.com
-                </Link>
+                </a>
               </li>
             </ul>
+          </div>
+          <div>
+            <span>Resources from</span>{" "}
+            <a href="https://www.gutenberg.org/" target="_blank">
+              Project Gutenberg <IoMdOpen />
+            </a>{" "}
+            and{" "}
+            <a href="https://gutendex.com/">
+              Gutendex
+              <IoMdOpen />
+            </a>
+            .
+          </div>
+          <div>
+            <span>Credits:</span>{" "}
+            <a href="https://streamlinehq.com/" target="_blank">
+              Free icons and illustrations from Streamlines <IoMdOpen />
+            </a>
           </div>
         </footer>
       </body>
