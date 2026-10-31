@@ -33,7 +33,9 @@ export default async function PaginatedSearch({
 
   return (
     <>
-      <h1>Search results for "{query}"</h1>
+      <h1>
+        Search results for "{query}" (page {pageNumber})
+      </h1>
       <section>
         <Suspense fallback={<Skeleton />}>
           <BooksGrid

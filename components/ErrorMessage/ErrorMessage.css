@@ -1,8 +1,11 @@
 .error-message-component {
-  inline-size: min(350px, 96%);
+  /*   inline-size: min(350px, 96%); */
   margin-inline: auto;
   text-align: center;
   margin-block-start: 2rem;
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
 
   .big-icon {
     display: block;
@@ -12,17 +15,12 @@
 
   .big-text {
     display: inline-block;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 600;
   }
 
   .link-pressable {
     border: solid 2px var(--primary-accent);
     border-radius: 100vh;
-  }
-
-  .important-text {
-    font-size: 1.5rem;
-    margin-block-start: 1.5rem;
   }
 }

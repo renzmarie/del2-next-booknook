@@ -6,8 +6,7 @@ export default function Skeleton() {
       <div className="grid-cards">
         <div className="container--modal">
           <span className="italicized">
-            Fetching the next set of books{" "}
-            <span className="skeleton-pulse">. . .</span>
+            Getting books <span className="skeleton-pulse">. . .</span>
           </span>
         </div>
         {Array.from({ length: 16 }).map((_, index) => (
