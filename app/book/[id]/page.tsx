@@ -56,9 +56,19 @@ export default async function BookPage({ params }: BookPageProps) {
           </p>
         </div>
       </section>
-
+      <section className="container--read-window" id="book-window">
+        <h2>Read {book.title} below</h2>
+        <iframe
+          src={book.formats["text/html"]}
+          width="300"
+          height="750"
+          allowFullScreen
+        >
+          Browser does not support this feature.
+        </iframe>
+      </section>
       <section className="book-access">
-        <h2>Want to read {book.title}?</h2>
+        <h2>Other ways to read {book.title}</h2>
         <ul className="flex-row">
           <li className="center">
             <Link
