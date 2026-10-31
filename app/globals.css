@@ -60,6 +60,7 @@ main {
 footer {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-block-start: 1rem;
   inline-size: min(1920px, 96%);
   margin-inline: auto;
@@ -172,6 +173,10 @@ input {
   text-decoration: underline var(--secondary-accent);
   text-decoration-thickness: 3px;
   text-underline-offset: 3px;
+}
+
+.italicized {
+  font-style: italic;
 }
 
 ul {

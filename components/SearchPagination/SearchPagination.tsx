@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "./Pagination.css";
+import "./SearchPagination.css";
 
 type SearchPaginationProps = {
   totalPageCount: number;
@@ -26,6 +26,11 @@ export default function SearchPagination({
           </Link>
         )}
       </span>
+
+      <span className="italicized">
+        Page {pageNumber} of {totalPageCount}
+      </span>
+
       <span>
         {pageNumber < totalPageCount && (
           <Link

@@ -17,7 +17,7 @@ export default async function Home() {
 
   const books: ApiResponse = await response.json();
 
-  const popularBooks: Book[] = books.results.splice(0, 12);
+  const popularBooks: Book[] = books.results.splice(0, 24);
 
   return (
     <div className="container--home">

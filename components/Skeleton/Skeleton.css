@@ -2,8 +2,19 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
-
   margin-block-start: 2rem;
+
+  .container--modal {
+    text-align: center;
+    background-color: var(--background);
+    border: 2px solid var(--primary-accent);
+    border-radius: 1rem;
+    display: block;
+    position: sticky;
+    top: 1rem;
+    padding: 1rem;
+    grid-column: 1/-1;
+  }
 }
 
 .book-skeleton {
@@ -15,6 +26,7 @@
   border: solid 1px var(--border);
   border-radius: 1rem;
   padding: 1rem 1rem;
+  z-index: -1;
 }
 
 .skeleton-pulse {

@@ -4,7 +4,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { ApiResponse } from "@/types/Response.type";
 import BookNotFound from "../BookNotFound/BookNotFound";
 import { BOOKS_API_ENDPOINT } from "@/constants/books.api";
-import SearchPagination from "../Pagination/SearchPagination";
+import SearchPagination from "../SearchPagination/SearchPagination";
 
 type BooksGridProps = {
   pageNumberParams?: string;
@@ -39,9 +39,6 @@ export default async function BooksGrid({
 
   return (
     <>
-      {/* <span className="big-text">
-        We found <i>{data.count}</i> books related to "{searchParams}"
-      </span> */}
       <div className="grid-cards">
         {booksArray.map((item) => (
           <BookCard key={item.id} book={item} />
