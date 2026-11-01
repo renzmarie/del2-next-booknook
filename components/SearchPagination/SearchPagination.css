@@ -1,5 +1,6 @@
 .container--pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-block: 2rem 0;
 
