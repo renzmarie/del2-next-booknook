@@ -67,8 +67,9 @@ export default async function BookPage({ params }: BookPageProps) {
           Browser does not support this feature.
         </iframe>
       </section>
+
       <section className="book-access">
-        <h2>Other ways to read {book.title}</h2>
+        <h3>Other ways to read {book.title}</h3>
         <ul className="flex-row">
           <li className="center">
             <Link

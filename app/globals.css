@@ -189,7 +189,8 @@ section {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   margin-block-start: 1rem;
   font-weight: 600;
 }

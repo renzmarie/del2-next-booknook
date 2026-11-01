@@ -1,3 +1,4 @@
+import SearchPagination from "@/components/SearchPagination/SearchPagination";
 import "./about.css";
 
 export default function AboutPage() {
@@ -82,6 +83,7 @@ export default function AboutPage() {
         Thank you for stopping by Book Nook! There's always another story
         waiting to be discovered. Happy reading!
       </p>
+      <SearchPagination pageNumber={1} totalPageCount={9} />
     </div>
   );
 }
